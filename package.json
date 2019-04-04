@@ -6,6 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engineStrict": true,
+  "engines": {
+    "node": "=8.12.0",
+    "npm": "=6.4.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/emilionavarro/class-nodejs.git"

@@ -2,7 +2,7 @@
 //Require express.js
 const express = require('express');
 const bodyParser = require('body-parser');
-const Show = require('./show');
+import { Show } from './Show';
 
 //Let's make a new express app
 const app = express();

@@ -8,7 +8,7 @@ import { Show } from './Show';
 const app = express();
 
 //app variables
-let showsToWatch = [];
+let showsToWatch: Array<Show> = new Array<Show>();
 
 //Let's write some middleware
 app.use((req, res, next) => {

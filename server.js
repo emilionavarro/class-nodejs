@@ -33,15 +33,6 @@ app.get('/shows', (req, res) => {
 
 });
 
-app.post('/shows', (req, res) => {
-
-    let show = req.body.show;
-
-    showsToWatch.push(show);
-    res.json("Added!");
-    
-})
-
 //Let's listen on a port for requests
 const PORT = 3000;
 

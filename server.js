@@ -27,12 +27,6 @@ app.get('/', (req, res) => {
 
 });
 
-app.get('/shows', (req, res) => {
-
-    res.json(showsToWatch);
-
-});
-
 //Let's listen on a port for requests
 const PORT = 3000;
 

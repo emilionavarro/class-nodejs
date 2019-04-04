@@ -1,7 +1,8 @@
 
 //Require express.js
 const express = require('express');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const Show = require('./show');
 
 //Let's make a new express app
 const app = express();
@@ -33,9 +34,19 @@ app.get('/shows', (req, res) => {
 
 });
 
+app.get('/shows/:id', (req, res) => {
+
+    let id = Number.parseInt(req.params.id);
+    let show = showsToWatch.find(show => show.id === id);
+    res.json(show);
+
+})
+
 app.post('/shows', (req, res) => {
 
-    let show = req.body.show;
+    let showName = req.body.show;
+    let newId = showsToWatch.length;
+    let show = new Show(newId, showName);
 
     showsToWatch.push(show);
     res.json("Added!");

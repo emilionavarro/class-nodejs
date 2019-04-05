@@ -6,6 +6,4 @@ function show(id, name) {
 
 }
 
-
-
 module.exports = show;

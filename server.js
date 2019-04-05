@@ -40,7 +40,7 @@ app.get('/shows/:id', (req, res) => {
     let show = showsToWatch.find(show => show.id === id);
     res.json(show);
 
-})
+});
 
 app.post('/shows', (req, res) => {
 

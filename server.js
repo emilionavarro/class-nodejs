@@ -6,9 +6,6 @@ const bodyParser = require('body-parser')
 //Let's make a new express app
 const app = express();
 
-//app variables
-let showsToWatch = [];
-
 //Let's write some middleware
 app.use((req, res, next) => {
 

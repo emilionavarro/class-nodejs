@@ -3,12 +3,29 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 import { Show } from './Show';
+import { readFileSync } from 'fs';
 
 //Let's make a new express app
 const app = express();
 
 //app variables
 let showsToWatch: Array<Show> = new Array<Show>();
+
+// Let's try adding some shows from a file
+
+let configDir = process.env.MOVIE_CONFIG_DIR || '/cfg/movies.csv';
+
+try {
+    let defaultMovies = readFileSync(configDir).toString().split("\n");
+    defaultMovies.forEach((m) => {
+        let name = m.trim();
+        if(name) {
+            showsToWatch.push(new Show(showsToWatch.length, m));
+        }
+    });
+} catch (err) {
+    console.log("Unable to prepopulate movie list:", err);
+}
 
 //Let's write some middleware
 app.use((req, res, next) => {
@@ -50,7 +67,7 @@ app.post('/shows', (req, res) => {
 
     showsToWatch.push(show);
     res.json("Added!");
-    
+
 });
 
 //Let's listen on a port for requests

@@ -17,8 +17,6 @@ RUN npm run build
 #executing container
 FROM node:8.12-alpine
 
-# RUN apk --no-cache add ca-certificates
-
 WORKDIR /app
 COPY --from=builder /app/dist/ ./dist
 COPY --from=builder /app/package*.json ./

@@ -10,7 +10,7 @@ COPY *.json ./
 RUN npm install -g typescript && npm install 
 
 #move our source to container
-COPY ./src/ ./src/
+COPY src src
 
 RUN npm run build
 
